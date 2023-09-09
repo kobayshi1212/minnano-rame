@@ -15,10 +15,16 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
+  GUEST_USER_EMAIL = 'guest@gmail.com'
   def self.guest
-    find_or_create_by(email: 'guest@gmail.com') do |user| #存在すれば取り出す。存在しない場合は新規作成する
+    find_or_create_by(email: GUEST_USER_EMAIL) do |user| #存在すれば取り出す。存在しない場合は新規作成する
       user.password = SecureRandom.urlsafe_base64         #パスワードをランダムに
       user.name = "ゲスト"
     end
   end
+  
+  def guest_user?   #emailがゲストユーザーと同じであればtrueを
+    email == GUEST_USER_EMAIL
+  end
+  
 end
