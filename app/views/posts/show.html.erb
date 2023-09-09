@@ -1,4 +1,8 @@
 <h1>投稿詳細</h1>
+
+<%= link_to user_path(@post.user) do %>
+  <p><%= image_tag @post.user.get_profile_image(100,100) %></p>
+<% end %>
 <p><%= image_tag @post.get_image(350,300) %></p>
 <p><%= @post.store %></p>
 <p><%= @post.address %></p>
