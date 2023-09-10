@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-  
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -16,11 +16,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @post_comment = PostComment.new
   end
-  
+
   def edit
   end
-  
+
   def destroy
     post = Post.find(params[:id])
     if post.destroy
@@ -30,10 +31,10 @@ class PostsController < ApplicationController
       render :show
     end
   end
-  
-  
+
+
   private
-  
+
   def post_params
     params.require(:post).permit(:store, :menu, :impressions, :address, :image)
   end

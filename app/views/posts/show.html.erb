@@ -6,13 +6,17 @@
 <p><%= image_tag @post.get_image(350,300) %></p>
 <p><%= @post.store %></p>
 <p><%= @post.address %></p>
-<span><%= @post.menu %></span>
-<span><%= render 'favorites/btn', post: @post %></span>
+<span>
+  <%= @post.menu %>
+  <%= render 'favorites/btn', post: @post %>
+  <i class="far fa-comment" style="color: #bc2424;"></i><%= @post.post_comments.count %>件
+  <% if @post.user == current_user %>
+    <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
+  <% end %>
+</span>
 <p><%= @post.impressions %></p>
 <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-<% if @post.user == current_user %>
-  <p><%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %></p>
-<% end %>
+
 
 <% if @post.errors.any? %>
   <div id="error_explanation">
@@ -24,3 +28,6 @@
     </ul>
   </div>
 <% end %>
+
+<%= render 'post_comments/index', post: @post %>
+<%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
