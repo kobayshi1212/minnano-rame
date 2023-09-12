@@ -1,0 +1,25 @@
+<h2>Results index</h2>
+
+<% if @range == "User" %>
+  <table class= "table">
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user) do %>
+              <%= image_tag user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %>
+            <% end %>
+          </td>
+          <td><%= user.name %></td>
+          <td><%= render 'relationships/btn', user: user %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post.id) do %>
+      <%= image_tag post.get_image(300,300) %>
+    <% end %>
+  <% end %>
+<% end %>

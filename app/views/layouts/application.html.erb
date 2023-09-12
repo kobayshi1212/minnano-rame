@@ -3,7 +3,9 @@
   <head>
     <title>MinnanoRamen</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    
+    <%= stylesheet_link_tag 'application' %>
+
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,6 +25,7 @@
         <li><%= link_to "新規登録", new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
       <% end %>
+      <%= render 'searches/search' %>
       <%= flash[:notice] %>
     </header>
     <%= yield %>

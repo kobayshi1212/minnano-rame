@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+.rounded-circle {
+  border-radius: 50%;
+  object-fit: cover; /* 画像を正方形にクリップ */
+  width: 100px; /* 画像の幅 */
+  height: 100px; /* 画像の高さ */
+}
+
+.small-profile-image {
+  width: 50px; /* 幅を適切なサイズに変更 */
+  height: 50px; /* 高さを適切なサイズに変更 */
+}

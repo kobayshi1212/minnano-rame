@@ -5,6 +5,20 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy 
   has_one_attached :image
 
+  
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("store LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("store LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("store LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("store LIKE?","%#{word}%")
+    else
+      @post = Post.all
+    end
+  end
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/2389161.jpg')

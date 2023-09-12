@@ -1,0 +1,24 @@
+<% users.each do |user| %>
+  <table class= "table">
+    <tbody>
+      <tr>
+        <td>
+          <%= link_to user_path(user) do %>
+            <%= image_tag user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %>
+          <% end %>
+        </td>
+        <td><%= user.name %></td>
+        <td>
+          <%= link_to user_followings_path(user) do %>
+            フォロー<%= user.followings.count %>人
+          <% end %>
+        </td>
+        <td>
+          <%= link_to user_followers_path(user) do %>
+            フォロワー<%= user.followers.count %>人
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
