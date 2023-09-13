@@ -8,8 +8,12 @@
 <p><%= @post.address %></p>
 <span>
   <%= @post.menu %>
-  <%= render 'favorites/btn', post: @post %>
-  <i class="far fa-comment" style="color: #bc2424;"></i><%= @post.post_comments.count %>件
+  <span id="favorite_buttons_<%= @post.id %>">
+    <%= render 'favorites/btn', post: @post %>
+  </span>
+  
+    <i class="far fa-comment" style="color: #bc2424;"></i><span id="comment-count"><%= @post.post_comments.count %>件</span>
+  
   <% if @post.user == current_user %>
     <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
   <% end %>
@@ -28,6 +32,9 @@
     </ul>
   </div>
 <% end %>
-
-<%= render 'post_comments/index', post: @post %>
-<%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
+<div id="post-comments">
+  <%= render 'post_comments/index', post: @post %>
+</div>
+<div id="post-comments/form">
+  <%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
+</div>
