@@ -13,6 +13,14 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_one_attached :profile_image
 
+  def total_favorites  # ユーザーが投稿したすべての投稿のいいね数を合計する
+    self.posts.joins(:favorites).count
+  end
+  
+  def total_post_comments
+    self.posts.joins(:post_comments).count
+  end
+  
   def self.looks(search, word)
     if search == "perfect_match"
       @user = User.where("name LIKE?", "#{word}")

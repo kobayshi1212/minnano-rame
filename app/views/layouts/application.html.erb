@@ -25,7 +25,9 @@
         <li><%= link_to "新規登録", new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
       <% end %>
+      <%= link_to "ランキング", rank_path %>
       <%= render 'searches/search' %>
+      
       <%= flash[:notice] %>
     </header>
     <%= yield %>

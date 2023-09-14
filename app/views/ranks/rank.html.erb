@@ -1,0 +1,12 @@
+<h1>ランキング</h1>
+<div>
+  <% @post_favorite_ranks.each.with_index(1) do |post, i| %>
+    <div>
+      <%= link_to post_path(post) do %>
+        第<%= i %>位: <%= image_tag post.get_image(100,100) %>
+      <% end %>
+      <%= post.user.name %>
+      （いいね数: <%= post.favorites.count %>）
+    </div>
+  <% end %>
+</div>

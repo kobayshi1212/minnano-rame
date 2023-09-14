@@ -33,7 +33,8 @@
 <div>
   <span>
     投稿数<%= @user.posts.count %>件
-
+    トータルいいね数<%= @user.total_favorites %>件
+    トータル💬数<%= @user.total_post_comments %>件
   </span>
 </div>
 <% @user.posts.each do |post| %>
