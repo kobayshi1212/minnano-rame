@@ -29,5 +29,10 @@
       <%= flash[:notice] %>
     </header>
     <%= yield %>
+    <footer>
+      <% if current_user.try(:admin?) %>
+    <%= link_to '管理者ログイン', rails_admin_path %>
+  <% end %>
+    </footer>
   </body>
 </html>
