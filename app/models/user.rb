@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
+  has_many :notifications, dependent: :destroy
   has_one_attached :profile_image
 
   def total_favorites  # ユーザーが投稿したすべての投稿のいいね数を合計する

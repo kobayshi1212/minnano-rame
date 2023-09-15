@@ -4,7 +4,8 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy 
   has_one_attached :image
-
+  
+  has_one :notifcation, as: :subject, dependent: :destroy
   
   def self.looks(search, word)
     if search == "perfect_match"

@@ -26,6 +26,7 @@
         <li><%= link_to "ログイン", new_user_session_path %></li>
       <% end %>
       <%= link_to "ランキング", rank_path %>
+      <%= render 'layouts/notification' %>
       <%= render 'searches/search' %>
       
       <%= flash[:notice] %>
