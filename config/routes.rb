@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resources :post_comments, only:[:create, :destroy]
   end
   
-  get 'notifications' => 'notifications#index'  
+  resource :notifications, only:[:index, :destroy]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

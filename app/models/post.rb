@@ -7,6 +7,9 @@ class Post < ApplicationRecord
   
   has_one :notifcation, as: :subject, dependent: :destroy
   
+  validates :store, presence: true
+  validates :image, presence: true
+  
   def self.looks(search, word)
     if search == "perfect_match"
       @post = Post.where("store LIKE?","#{word}")

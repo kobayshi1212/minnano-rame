@@ -1,6 +1,6 @@
 <% if current_user.present? %>
   <li class="nav-item">
-    <%= link_to notifications_path, class: "nav-link" do %>
+    <%= link_to notifications_index_path, class: "nav-link" do %>
       <% if current_user.notifications.where(checked: false).exists? %>
         <i class="fas fa-bell" style="color: #efff14;"></i>
       <% else %>
@@ -9,4 +9,4 @@
       通知機能
     <% end %>
   </li>
-<% end %>  
+<% end %>

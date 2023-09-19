@@ -1,11 +1,11 @@
 <% if post.favorited_by?(current_user) %>
   <%= link_to post_favorites_path(post), method: :delete, remote: true, class: "text-decoration-none link-dark" do %>
     <i class="far fa-grin-hearts" style="color: #cb1515;"></i>
-    <span class="text-dark"><%= @post.favorites.count %>件</span>
+    <span class="text-dark"><%= post.favorites.count %>件</span>
   <% end %>
 <% else %>
   <%= link_to post_favorites_path(post), method: :post, remote: true ,class: "text-decoration-none link-dark" do %>
     <i class="far fa-grin-hearts" style="color: #cdd4e0;"></i>
-    <span class="text-dark"><%= @post.favorites.count %>件</span>
+    <span class="text-dark"><%= post.favorites.count %>件</span>
   <% end %>
 <% end %>
