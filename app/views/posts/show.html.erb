@@ -1,40 +1,42 @@
-<h1>投稿詳細</h1>
-
-<%= link_to user_path(@post.user) do %>
-  <p><%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle" %></p>
-<% end %>
-<p><%= image_tag @post.get_image(350,300) %></p>
-<p><%= @post.store %></p>
-<p><%= @post.address %></p>
-<span>
-  <%= @post.menu %>
-  <span id="favorite_buttons_<%= @post.id %>">
-    <%= render 'favorites/btn', post: @post %>
-  </span>
-  
-    <i class="far fa-comment" style="color: #bc2424;"></i><span id="comment-count"><%= @post.post_comments.count %>件</span>
-  
-  <% if @post.user == current_user %>
-    <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
-  <% end %>
-</span>
-<p><%= @post.impressions %></p>
-<p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
-
-
-<% if @post.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-4 mt-3 ">
+      <h2 class="text-center">投稿詳細</h2>
+      
+      <div class="mt-4 mb-2">
+        <%= link_to user_path(@post.user) do %>
+          <span><%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle small-profile-image" %></span>
+        <% end %>
+        <span><%= @post.user.name %></span>
+      </div>
+      <div class="text-center">
+        <p><%= image_tag @post.get_image(350) %></p>
+        <p>
+          <span class="font-weight-bold" style="font-size: 20px;"><%= @post.store %></span>
+          <span><%= @post.created_at.strftime('<span style="font-size: 10px;">%Y/%m/%d</span>').html_safe %></span>
+          <% if @post.user == current_user %>
+            <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
+          <% end %>
+        </p>
+        
+        <p><%= @post.menu %></p>
+        <span id="favorite_buttons_<%= @post.id %>">
+            <%= render 'favorites/btn', post: @post %>
+        </span>
+        <i class="far fa-comment" style="color: #bc2424;"></i><span id="comment-count"><%= @post.post_comments.count %>件</span>
+        <p><%= @post.address %></p>
+        <p><%= @post.impressions %></p>
+      </div>
+      
+      
+        
+      
+      <div id="post-comments">
+        <%= render 'post_comments/index', post: @post %>
+      </div>
+      <div id="post-comments/form">
+        <%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
+      </div>
+    </div>
   </div>
-<% end %>
-<div id="post-comments">
-  <%= render 'post_comments/index', post: @post %>
-</div>
-<div id="post-comments/form">
-  <%= render 'post_comments/form', post: @post, post_comment: @post_comment %>
 </div>

@@ -2,12 +2,13 @@
   <%= image_tag post_comment.user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %>
   <span>
     <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-    
+    <%= post_comment.created_at.strftime('<span style="font-size: 10px;">%Y/%m/%d</span>').html_safe %>
   </span>
-  <%= post_comment.comment %>
-  <% if post_comment.user == current_user %>
-      <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
-    <% end %>
+  <p class=""><%= post_comment.comment %>
+    <span><% if post_comment.user == current_user %>
+        <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
+      <% end %>
+    </span>
+  </p>
 <% end %>
   

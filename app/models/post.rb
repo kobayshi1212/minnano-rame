@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy 
   has_one_attached :image
   
-  has_one :notifcation, as: :subject, dependent: :destroy
+  has_one :notification, as: :subject, dependent: :destroy
   
   validates :store, presence: true
   validates :image, presence: true
@@ -23,12 +23,12 @@ class Post < ApplicationRecord
       @post = Post.all
     end
   end
-  def get_image(width, height)
+  def get_image(width)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/2389161.jpg')
       image.attach(io: File.open(file_path), filename: '2389161.jpg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_limit: [width, height]).processed
+    image.variant(resize_to_limit: [width, nil]).processed
   end
   
   def favorited_by?(user)

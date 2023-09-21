@@ -1,8 +1,12 @@
-<h1>投稿一覧</h1>
-<% @posts.each do |post| %>
-  <%= link_to post_path(post.id) do %>
-    <%= image_tag post.get_image(300,300) %>
-  <% end %>
-<% end %>
-
-
+<div class="container">
+  <h1 class="mt-4 mb-4">みんなのラーメン一覧</h1>
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-12 mb-4">
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.get_image(600), class: "d-block mx-auto" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
