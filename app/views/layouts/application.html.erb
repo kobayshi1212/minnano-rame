@@ -15,21 +15,23 @@
   </head>
 
   <body>
-    <header class="shadow-sm">
+    <header class="custom-header shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <%= link_to "みんなのラーメン", root_path, class: "navbar-brand" %>
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag "LYOR7363.PNG" %>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto extra-bold" style="font-size: 20px;">
               <li class="nav-item mt-auto"><%= link_to "About", homes_about_path, class: "nav-link" %></li>
               <% if user_signed_in? %>
                 <li class="nav-item mt-auto"><%= link_to "投稿", new_post_path, class: "nav-link" %></li>
                 <li class="nav-item mt-auto"><%= link_to "ランキング", rank_path, class: "nav-link" %></li>
                 <li class="nav-item mt-auto"><%= render 'layouts/notification' %></li>
-                
+
                 <!-- プロフィール画像のドロップダウンメニュー -->
                 <li class="nav-item mt-auto dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,7 +42,7 @@
                     <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method="delete">ログアウト</a>
                   </div>
                 </li>
-      
+
                 <!-- 検索バー -->
                 <li class="nav-item mt-auto">
                   <%= render 'searches/search' %>
@@ -58,10 +60,18 @@
       <%= flash[:notice] %>
       <%= yield %>
     </main>
-    <footer>
-      <% if current_user.try(:admin?) %>
-    <%= link_to '管理者ログイン', rails_admin_path %>
-  <% end %>
+    <footer style="position: fixed; bottom: 0; width: 100%;">
+      <footer style="position: fixed; bottom: 0; width: 100%;">
+      <div class="footer bg-light" style="height: 25px;">
+      	<div class="container">
+      		<div class="row justify-content-center">
+            © 2023 Ryota Kobayashi
+            <% if current_user.try(:admin?) %>
+              <%= link_to '管理者ログイン', rails_admin_path %>
+            <% end %>
+          </div>
+      	</div>
+      </div>
     </footer>
   </body>
 </html>

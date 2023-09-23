@@ -1,12 +1,16 @@
 <div class="container">
-  <h1 class="mt-4 mb-4">みんなのラーメン一覧</h1>
+  <h1 class="mt-4 mb-4 text-center">みんなのラーメン一覧</h1>
   <div class="row">
-    <% @posts.each do |post| %>
-      <div class="col-12 mb-4">
-        <%= link_to post_path(post.id) do %>
-          <%= image_tag post.convert_to_webp, class: "d-block mx-auto", style:"width: 600px;" %>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="col-md-6 mx-auto">
+      <% @posts.each do |post| %>
+        <div class="col-12 mb-4">
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.convert_to_webp, style:"width: 500px;" %>
+          <% end %>
+          <div class="mt-4"><%= image_tag "243183860.jpg", width: "510" %></div>
+        </div>
+      <% end %>
+      <div class="mb-4 d-flex justify-content-center" style="font-size: 25px;"><%= paginate @posts %></div>
+    </div>
   </div>
 </div>

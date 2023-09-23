@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
+  before_action :is_matching_login_user, only: [:edit, :update]
   def show
     @user = User.find(params[:id])
 
@@ -11,11 +12,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    is_matching_login_user
     @user = User.find(params[:id])
-
   end
 
   def update
+    is_matching_login_user
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to mypage_path
@@ -25,6 +27,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:profile_image, :name, :email)
+  end
+  
+  def is_matching_login_user
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to root_path
+    end
   end
   
   def ensure_guest_user

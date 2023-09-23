@@ -1,12 +1,26 @@
-<h1>ランキング</h1>
-<div>
-  <% @post_favorite_ranks.each.with_index(1) do |post, i| %>
-    <div>
-      <%= link_to post_path(post) do %>
-        第<%= i %>位: <%= image_tag post.get_image(100,100) %>
-      <% end %>
-      <%= post.user.name %>
-      （いいね数: <%= post.favorites.count %>）
+<div class="container mt-4">
+  <div class="row ">
+    <div class="col-6 mt-3 mx-auto ">
+      <h1 class="text-center">いいねランキング</h1>
+      <div class="mt-4"><%= image_tag "243183860.jpg", width: "510" %></div>
+        <div>
+          <% @post_favorite_ranks.take(30).each.with_index(1) do |post, i| %>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <%= link_to post_path(post) do %>
+                      第<%= i %>位: <%= image_tag post.convert_to_webp, class: "img-fluid", style:"width: 120px;" %>
+                    <% end %>
+                  </td>
+                    <td class="align-middle" style="width: 40%;"><%= post.user.name %></td>
+                    <td class="align-middle">いいね数:<%= post.favorites.count %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>  
+        </div>
+      <div class="mt-4"><%= image_tag "243183860.jpg", width: "510" %></div>  
     </div>
-  <% end %>
+  </div>
 </div>

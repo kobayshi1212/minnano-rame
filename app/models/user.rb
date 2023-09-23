@@ -17,11 +17,11 @@ class User < ApplicationRecord
   def total_favorites  # ユーザーが投稿したすべての投稿のいいね数を合計する
     self.posts.joins(:favorites).count
   end
-  
+
   def total_post_comments
     self.posts.joins(:post_comments).count
   end
-  
+
   def self.looks(search, word)
     if search == "perfect_match"
       @user = User.where("name LIKE?", "#{word}")
@@ -50,7 +50,7 @@ class User < ApplicationRecord
 
   def get_profile_image(width, height) #プロフィール画像の初期画像の設定
     unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/761729.jpg')
+      file_path = Rails.root.join('app/assets/images/2069258.jpg')
       profile_image.attach(io: File.open(file_path), filename: '761729.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant(resize_to_limit: [width, height]).processed

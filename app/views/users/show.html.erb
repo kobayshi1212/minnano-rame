@@ -43,16 +43,15 @@
     </div>
   </div>
   <div class="row">
-
-      <% @user.posts.each do |post| %>
-        <div class="col-md-4">
-          <div class="card border-secondary d-flex align-items-center justify-content-center" style="height: 28rem; border: 15px solid red;">
-            <%= link_to post_path(post) do %>
-              <%= image_tag post.convert_to_webp, class: "card-img-top " %>
-            <% end %>
-          </div>
+    <div class="mt-4 mb-2 mx-auto"><%= image_tag "243183860.jpg", width: "1100" %></div>
+    <% @user.posts.each do |post| %>
+      <div class="col-md-4">
+        <div class="card border-danger justify-content-center" style="height: 28rem; border: 15px solid red;">
+          <%= link_to post_path(post) do %>
+            <%= image_tag post.convert_to_webp, class: "card-img-top" %>
+          <% end %>
         </div>
-      <% end %>
-
+      </div>
+    <% end %>
   </div>
 </div>

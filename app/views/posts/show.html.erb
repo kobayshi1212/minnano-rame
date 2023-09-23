@@ -3,7 +3,7 @@
     <div class="col-6 mt-3 mx-auto text-center">
       <h2 class=>投稿詳細</h2>
       <div class="mt-4 mb-2">
-        <p><%= image_tag @post.convert_to_webp, style:"width: 600px;" %></p>
+        <p><%= image_tag @post.convert_to_webp, style:"width: 300px;" %></p>
         <div>
           <%= link_to user_path(@post.user) do %>
             <span><%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle small-profile-image" %></span>
@@ -12,7 +12,7 @@
         </div>
         <p>
           <span class="font-weight-bold" style="font-size: 20px;"><%= @post.store %></span>
-          <span><%= @post.created_at.strftime('<span style="font-size: 10px;">%Y/%m/%d</span>').html_safe %></span>
+          <span><%= @post.created_at.strftime('<span style="font-size: 12px;">%Y/%m/%d</span>').html_safe %></span>
           <% if @post.user == current_user %>
             <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
           <% end %>
@@ -22,7 +22,7 @@
         <span id="favorite_buttons_<%= @post.id %>">
             <%= render 'favorites/btn', post: @post %>
         </span>
-        <i class="far fa-comment" style="color: #bc2424;"></i><span id="comment-count"><%= @post.post_comments.count %>件</span>
+        <i class="far fa-comment fa-2x" style="color: #bc2424;"></i><span id="comment-count"><%= @post.post_comments.count %>件</span>
         <p><%= @post.address %></p>
         <p><%= @post.impressions %></p>
       </div>
