@@ -23,12 +23,12 @@ class Post < ApplicationRecord
       @post = Post.all
     end
   end
-  def get_image(width)
+  def convert_to_webp #画像をWebpに変換する
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/2389161.jpg')
       image.attach(io: File.open(file_path), filename: '2389161.jpg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_limit: [width, nil]).processed
+    image.variant(convert: 'webp')
   end
   
   def favorited_by?(user)

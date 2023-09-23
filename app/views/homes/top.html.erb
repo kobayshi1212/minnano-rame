@@ -4,7 +4,7 @@
     <% @posts.each do |post| %>
       <div class="col-12 mb-4">
         <%= link_to post_path(post.id) do %>
-          <%= image_tag post.get_image(600), class: "d-block mx-auto" %>
+          <%= image_tag post.convert_to_webp, class: "d-block mx-auto", style:"width: 600px;" %>
         <% end %>
       </div>
     <% end %>
