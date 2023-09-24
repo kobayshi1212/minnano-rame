@@ -28,7 +28,7 @@
   color: black; /* テキストの色を白に設定 */
   padding: 20px 0; /* 上下に余白を追加 */
   text-align: center; /* テキストを中央寄せにする */
-  position: absolute; /* フッターを絶対位置に設定 */
+  position: fixed; /* フッターを絶対位置に設定 */
   bottom: 0; /* フッターをページの下部に配置 */
   width: 100%; /* フッターをページの幅に合わせる */
 }
