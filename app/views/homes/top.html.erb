@@ -1,13 +1,13 @@
 <div class="container">
-  <h1 class="mt-4 mb-4 text-center">みんなのラーメン一覧</h1>
+  <h2 class="mt-4 mb-4 text-center">みんなのラーメン一覧</h2>
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-12  mb-4">
       <% @posts.each do |post| %>
-        <div class="col-12 mb-4">
+        <div class="text-center">
           <%= link_to post_path(post.id) do %>
-            <%= image_tag post.convert_to_webp, style:"width: 500px;" %>
+            <%= image_tag post.get_image, class: "img-fluid", style:"width: 400px;" %>
           <% end %>
-          <div class="mt-4"><%= image_tag "243183860.jpg", width: "510" %></div>
+          <div class="mt-4 mx-auto"><%= image_tag "243183860.jpg", class: "img-fluid", style: "width: 400px;" %></div>
         </div>
       <% end %>
       <div class="mb-4 d-flex justify-content-center" style="font-size: 25px;"><%= paginate @posts %></div>

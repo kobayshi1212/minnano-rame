@@ -1,3 +1,8 @@
-
-<h1><%= @user.followings.count %>フォロー</h1>
-<%= render 'follow_list', users: @users %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+  <h1><%= @user.followings.count %>フォロー</h1>
+  <%= render 'follow_list', users: @users %>
+    </div>
+  </div>
+</div>

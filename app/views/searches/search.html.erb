@@ -1,25 +1,30 @@
-<h2>Results index</h2>
-
-<% if @range == "User" %>
-  <table class= "table">
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td>
-            <%= link_to user_path(user) do %>
-              <%= image_tag user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <h2 class="mt-3 text-center">検索結果</h2>
+      <% if @range == "User" %>
+        <table class= "table">
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <%= link_to user_path(user) do %>
+                    <%= image_tag user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %>
+                  <% end %>
+                </td>
+                <td class="text-align-cneter"><%= user.name %></td>
+                <td><%= render 'relationships/btn', user: user %></td>
+              </tr>
             <% end %>
-          </td>
-          <td><%= user.name %></td>
-          <td><%= render 'relationships/btn', user: user %></td>
-        </tr>
+          </tbody>
+        </table>
+      <% else %>
+        <% @posts.each do |post| %>
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_image(300,300) %>
+          <% end %>
+        <% end %>
       <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <% @posts.each do |post| %>
-    <%= link_to post_path(post.id) do %>
-      <%= image_tag post.get_image(300,300) %>
-    <% end %>
-  <% end %>
-<% end %>
+    </div>
+  </div>
+</div>

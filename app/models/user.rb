@@ -14,6 +14,9 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_one_attached :profile_image
 
+  validates :name, uniqueness: true, length: { minimum: 2, maximum: 20 }
+  
+  
   def total_favorites  # ユーザーが投稿したすべての投稿のいいね数を合計する
     self.posts.joins(:favorites).count
   end

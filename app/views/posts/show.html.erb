@@ -3,7 +3,7 @@
     <div class="col-6 mt-3 mx-auto text-center">
       <h2 class=>投稿詳細</h2>
       <div class="mt-4 mb-2">
-        <p><%= image_tag @post.convert_to_webp, style:"width: 300px;" %></p>
+        <p><%= image_tag @post.get_image, class: "img-fluid", style:"width: 250px;" %></p>
         <div>
           <%= link_to user_path(@post.user) do %>
             <span><%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle small-profile-image" %></span>

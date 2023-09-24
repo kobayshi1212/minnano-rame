@@ -1,7 +1,7 @@
-<div class="container mt-4">
+<div class="container mt-3 text-center">
   <div class="row ">
-    <div class="col-6 mt-3 mx-auto ">
-      <h1>通知</h1>
+    <div class="col-md-6 mt-3 mx-auto ">
+      <h2>通知</h2>
       <% if @notifications.present? %>
         <%= link_to "全削除", notifications_path, method: :delete, class: "btn btn-light" %>
         <% @notifications.each do |notification| %>

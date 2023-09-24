@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="row mx-auto">
-    <div class="col-4 mx-auto text-center">
+    <div class="col-md-6 mx-auto text-center">
       <% if current_user == @user %>
         <h2>マイページ</h2>
       <% else %>
@@ -35,20 +35,22 @@
       </div>
       <div>
         <span>
-          total🍜<%= @user.posts.count %>件
-          total👍<%= @user.total_favorites %>件
-          total💬<%= @user.total_post_comments %>件
+          total<%= image_tag"ラーメンのアイコン。.jpg", style: "width: 20px; height: 20px;" %><%= @user.posts.count %>杯
+          total<i class="far fa-grin-hearts fa-lg" style="color: #cb1515; width: 29px; height: 20px;"></i><%= @user.total_favorites %>件
+          total<i class="far fa-comment fa-lg" style="color: #bc2424;"></i><%= @user.total_post_comments %>件
         </span>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="mt-4 mb-2 mx-auto"><%= image_tag "243183860.jpg", width: "1100" %></div>
+    <div class="mt-4 mb-2 mx-auto"><%= image_tag "243183860.jpg",class: "img-fluid", width: "1100" %></div>
     <% @user.posts.each do |post| %>
       <div class="col-md-4">
         <div class="card border-danger justify-content-center" style="height: 28rem; border: 15px solid red;">
           <%= link_to post_path(post) do %>
-            <%= image_tag post.convert_to_webp, class: "card-img-top" %>
+          <div class="card-content" style="height: 100%;">
+            <%= image_tag post.get_image, class: "card-img-top img-fluid", style: "max-height: 100%; max-width: 100%; object-fit: contain;" %>
+          </div>
           <% end %>
         </div>
       </div>

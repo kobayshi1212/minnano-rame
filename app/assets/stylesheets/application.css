@@ -13,28 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .extra-bold {
-    font-weight: 900; /* 太いフォントにしたい */
-  }
- 
- .custom-header {
-   background-image: url('10477280.jpg');
-   background-repeat: no-repeat;
-   background-size: 30% 70%;
-   background-position: 42% 50%;
-   height: 100px;
-  
- }
- 
-.rounded-circle {
-  border-radius: 50%;
-  object-fit: cover; /* 画像を正方形にクリップ */
-  width: 100px; /* 画像の幅 */
-  height: 100px; /* 画像の高さ */
-}
 
-.small-profile-image {
-  width: 50px; /* 幅を適切なサイズに変更 */
-  height: 50px; /* 高さを適切なサイズに変更 */
-}
+
+
 
