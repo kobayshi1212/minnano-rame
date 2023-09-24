@@ -44,16 +44,20 @@
   </div>
   <div class="row">
     <div class="mt-4 mb-2 mx-auto"><%= image_tag "243183860.jpg",class: "img-fluid", width: "1100" %></div>
-    <% @user.posts.each do |post| %>
-      <div class="col-md-4">
-        <div class="card border-danger justify-content-center" style="height: 28rem; border: 15px solid red;">
-          <%= link_to post_path(post) do %>
-          <div class="card-content" style="height: 100%;">
-            <%= image_tag post.get_image, class: "card-img-top img-fluid", style: "max-height: 100%; max-width: 100%; object-fit: contain;" %>
+    <% if @user.posts.empty? %>
+      <p class="ml-3" style="font-size: 30px;">投稿がありません</p>
+    <% else %>
+      <% @user.posts.each do |post| %>
+        <div class="col-md-4">
+          <div class="card border-danger justify-content-center" style="height: 28rem; border: 15px solid red;">
+            <%= link_to post_path(post) do %>
+            <div class="card-content" style="height: 100%;">
+              <%= image_tag post.get_image, class: "card-img-top img-fluid", style: "max-height: 100%; max-width: 100%; object-fit: contain;" %>
+            </div>
+            <% end %>
           </div>
-          <% end %>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
