@@ -1,10 +1,10 @@
 <% if current_user.present? %>
-    <%= link_to notifications_index_path, class: "nav-link" do %>
-      <% if current_user.notifications.where(checked: false).exists? %>
-        <i class="fas fa-bell" style="color: #efff14;"></i>
-      <% else %>
-        <i class="fas fa-bell" style="color: #dadde2;"></i>
-      <% end %>
-      通知
+  <%= link_to notifications_index_path, class: "nav-link" do %>
+    <% if current_user.notifications.where(checked: false).exists? %>
+      <i class="fas fa-bell" style="color: #efff14;"></i>
+    <% else %>
+      <i class="fas fa-bell" style="color: #dadde2;"></i>
     <% end %>
+    通知
+  <% end %>
 <% end %>

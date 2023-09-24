@@ -17,14 +17,15 @@ class User < ApplicationRecord
   validates :name, uniqueness: true, length: { minimum: 2, maximum: 20 }
   
   
-  def total_favorites  # ユーザーが投稿したすべての投稿のいいね数を合計する
+  def total_favorites  #すべてのいいね数を合計する
     self.posts.joins(:favorites).count
   end
 
-  def total_post_comments
+  def total_post_comments  #コメント数を合計する
     self.posts.joins(:post_comments).count
   end
-
+  
+  #検索機能
   def self.looks(search, word)
     if search == "perfect_match"
       @user = User.where("name LIKE?", "#{word}")
@@ -51,7 +52,7 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  def get_profile_image(width, height) #プロフィール画像の初期画像の設定
+  def get_profile_image(width, height) #プロフィール画像の設定
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/2069258.jpg')
       profile_image.attach(io: File.open(file_path), filename: '761729.jpg', content_type: 'image/jpeg')
@@ -62,12 +63,12 @@ class User < ApplicationRecord
   GUEST_USER_EMAIL = 'guest@gmail.com'
   def self.guest
     find_or_create_by(email: GUEST_USER_EMAIL) do |user| #存在すれば取り出す。存在しない場合は新規作成する
-      user.password = SecureRandom.urlsafe_base64         #パスワードをランダムに
+      user.password = SecureRandom.urlsafe_base64        #パスワードをランダムに
       user.name = "ゲスト"
     end
   end
 
-  def guest_user?   #emailがゲストユーザーと同じであればtrueを
+  def guest_user?   #emailがゲストユーザーと同じであればtrueを返す
     email == GUEST_USER_EMAIL
   end
 

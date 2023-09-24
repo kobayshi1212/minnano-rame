@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
-  before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :is_matching_login_user, only: [:edit, :update] #他ユーザーからのアクセス制限
+  
   def show
     @user = User.find(params[:id])
-
   end
 
   def mypage
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to mypage_path
   end
+
 
   private
 

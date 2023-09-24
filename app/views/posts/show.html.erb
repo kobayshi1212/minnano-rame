@@ -6,7 +6,7 @@
         <p><%= image_tag @post.get_image, class: "img-fluid", style:"width: 250px;" %></p>
         <div>
           <%= link_to user_path(@post.user) do %>
-            <span><%= image_tag @post.user.get_profile_image(100,100), class: "rounded-circle small-profile-image" %></span>
+            <span><%= image_tag @post.user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %></span>
           <% end %>
           <span><%= @post.user.name %></span>
         </div>
@@ -26,7 +26,8 @@
         <p><%= @post.address %></p>
         <p><%= @post.impressions %></p>
       </div>
-
+      
+      <!--コメント欄-->
       <div id="post-comments">
         <%= render 'post_comments/index', post: @post %>
       </div>

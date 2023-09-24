@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   
   protected
   
+  #sign_upの際に、ユーザー名(name)のデータ操作を許可
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) #sign_upの際に、ユーザー名(name)のデータ操作を許可
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) 
   end
 end
