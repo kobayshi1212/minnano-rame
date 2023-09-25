@@ -10,15 +10,15 @@
           <% end %>
           <span><%= @post.user.name %></span>
         </div>
-        <p>
+        <div>
           <span class="font-weight-bold" style="font-size: 20px;"><%= @post.store %></span>
           <span><%= @post.created_at.strftime('<span style="font-size: 12px;">%Y/%m/%d</span>').html_safe %></span>
           <% if @post.user == current_user %>
             <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
           <% end %>
-        </p>
+        </div>
 
-        <p><%= @post.menu %></p>
+        <div><%= @post.menu %></div>
         <span id="favorite_buttons_<%= @post.id %>">
             <%= render 'favorites/btn', post: @post %>
         </span>

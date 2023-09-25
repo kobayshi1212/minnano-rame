@@ -1,6 +1,10 @@
 <% post.post_comments.each do |post_comment| %>
   <div>
-    <span><%= image_tag post_comment.user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %></span>
+    <span>
+      <%= link_to user_path(post_comment.user) do %>
+        <%= image_tag post_comment.user.get_profile_image(50,50), class: "rounded-circle small-profile-image" %>
+      <% end %>
+      </span>
     <span><%= post_comment.user.name %></span>
     <span><%= post_comment.created_at.strftime('<span style="font-size: 10px;">%Y/%m/%d</span>').html_safe %></span>
   </div>
