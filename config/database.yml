@@ -53,7 +53,7 @@ production:
   
   database1:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>
+  database: db/database2.sqlite3
   password: <%= ENV['DB_PASSWORD_USER1'] %>
 
   database2:
@@ -63,11 +63,11 @@ production:
   
   database3:
     <<: *default
-    database: <%= ENV['DB_DATABASE'] %>
+    database: db/database2.sqlite3
     password: <%= ENV['DB_PASSWORD_USER3'] %>
   
   database4:
     <<: *default
-    database: <%= ENV['DB_DATABASE'] %>
+    database: db/database2.sqlite3
     password: <%= ENV['DB_PASSWORD_USER4'] %>
   
