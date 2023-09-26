@@ -10,26 +10,26 @@
 
 admin = User.find_or_create_by!(email: "admin@example.com") do |user|
   user.name = "管理者"
-  user.password_digest = BCrypt::Password.create(ENV['DB_PASSWORD_USER1'])
+  user.password = ENV['DB_PASSWORD_USER1']
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/48771.png"), filename:"48771.png")
   user.admin = true
 end
 
 ziro = User.find_or_create_by!(email: "z@z") do |user|
   user.name = "じろう"
-  user.password_digest = BCrypt::Password.create(ENV['DB_PASSWORD_USER2'])
+  user.password = ENV['DB_PASSWORD_USER2']
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/ビール.jpg"), filename:"ビール.jpg")
 end
 
 taro = User.find_or_create_by!(email: "t@t") do |user|
   user.name = "たろう"
-  user.password_digest = BCrypt::Password.create(ENV['DB_PASSWORD_USER3'])
+  user.password = ENV['DB_PASSWORD_USER3']
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/亀.jpg"), filename:"亀.jpg")
 end
 
 goro = User.find_or_create_by!(email: "g@g") do |user|
   user.name = "ごろう"
-  user.password_digest = BCrypt::Password.create(ENV['DB_PASSWORD_USER4'])
+  user.password = ENV['DB_PASSWORD_USER4']
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/名古屋城.jpg"), filename:"名古屋城.jpg")
 end
 
