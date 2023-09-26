@@ -51,23 +51,4 @@ production:
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   
-  database1:
-  <<: *default
-  database: db/database1.sqlite3
-  password: <%= ENV['DB_PASSWORD_USER1'] %>
-
-  database2:
-    <<: *default
-    database: db/database2.sqlite3
-    password: <%= ENV['DB_PASSWORD_USER2'] %>
-  
-  database3:
-    <<: *default
-    database: db/database3.sqlite3
-    password: <%= ENV['DB_PASSWORD_USER3'] %>
-  
-  database4:
-    <<: *default
-    database: db/database4.sqlite3
-    password: <%= ENV['DB_PASSWORD_USER4'] %>
   
