@@ -17,7 +17,7 @@ end
 
 ziro = User.find_or_create_by!(email: "z@z") do |user|
   user.name = "じろう"
-  user.password = "password"
+  user.password = ENV['DB_PASSWORD_USER2']
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/ビール.jpg"), filename:"ビール.jpg")
 end
 
