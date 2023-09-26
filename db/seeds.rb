@@ -10,26 +10,26 @@
 
 admin = User.find_or_create_by!(email: "admin@example.com") do |user|
   user.name = "管理者"
-  user.password = "kkkkkk"
+  user.password = "password"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/48771.png"), filename:"48771.png")
   user.admin = true
 end
 
 ziro = User.find_or_create_by!(email: "z@z") do |user|
   user.name = "じろう"
-  user.password = "zzzzzz"
+  user.password = "password"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/ビール.jpg"), filename:"ビール.jpg")
 end
 
 taro = User.find_or_create_by!(email: "t@t") do |user|
   user.name = "たろう"
-  user.password = "tttttt"
+  user.password = "password"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/亀.jpg"), filename:"亀.jpg")
 end
 
 goro = User.find_or_create_by!(email: "g@g") do |user|
   user.name = "ごろう"
-  user.password = "gggggg"
+  user.password = "password"
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/名古屋城.jpg"), filename:"名古屋城.jpg")
 end
 

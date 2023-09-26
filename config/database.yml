@@ -12,6 +12,26 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
+  
+  database1:
+    <<: *default
+    database: db/database1.sqlite3
+    password: <%= ENV['DB_PASSWORD_USER1'] %>
+
+  database2:
+    <<: *default
+    database: db/database2.sqlite3
+    password: <%= ENV['DB_PASSWORD_USER2'] %>
+  
+  database3:
+    <<: *default
+    database: db/database1.sqlite3
+    password: <%= ENV['DB_PASSWORD_USER3'] %>
+
+  database4:
+    <<: *default
+    database: db/database2.sqlite3
+    password: <%= ENV['DB_PASSWORD_USER4'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,3 +50,24 @@ production:
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  
+  database1:
+    <<: *default
+    database: <%= ENV['DB_DATABASE'] %>
+    password: <%= ENV['DB_PASSWORD_USER1'] %>
+
+  database2:
+    <<: *default
+    database: <%= ENV['DB_DATABASE'] %>
+    password: <%= ENV['DB_PASSWORD_USER2'] %>
+  
+  database3:
+    <<: *default
+    database: <%= ENV['DB_DATABASE'] %>
+    password: <%= ENV['DB_PASSWORD_USER3'] %>
+
+  database4:
+    <<: *default
+    database: <%= ENV['DB_DATABASE'] %>
+    password: <%= ENV['DB_PASSWORD_USER4'] %>
+  
