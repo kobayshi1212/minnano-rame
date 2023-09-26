@@ -74,10 +74,20 @@ production:
   database3:
     <<: *default
     database: <%= ENV['DB_DATABASE'] %>
+    adapter: mysql2
+    encoding: utf8mb4
+    charset: utf8mb4
+    collation: utf8mb4_general_ci
+    host: <%= ENV['DB_HOST'] %>
     password: <%= ENV['DB_PASSWORD_USER3'] %>
 
   database4:
     <<: *default
     database: <%= ENV['DB_DATABASE'] %>
+    adapter: mysql2
+    encoding: utf8mb4
+    charset: utf8mb4
+    collation: utf8mb4_general_ci
+    host: <%= ENV['DB_HOST'] %>
     password: <%= ENV['DB_PASSWORD_USER4'] %>
   
