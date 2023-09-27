@@ -28,10 +28,11 @@
         <span>
           <%= link_to user_followings_path(@user) do %>
             フォロー<%= @user.followings.count %>人
-          <% end %>
+          <% end %>/
           <%= link_to user_followers_path(@user) do %>
             フォロワー<%= @user.followers.count %>人
-          <% end %>
+          <% end %> /
+          <%= link_to "お気に入り", favorites_user_path(@user) %>
         </span>
       </div>
       <div>
@@ -62,3 +63,4 @@
     <% end %>
   </div>
 </div>
+

@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h2>お気に入り</h2>
+      <% @favorite_posts.each do |post| %>
+        <table class="mt-4 table">
+          <tbody>
+            <tr>
+              <td></td>
+              <td>店名</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle;">
+                <%= link_to post_path(post) do %>
+                  <%= image_tag post.get_image, alt: "image", class: "img-fluid", style: "width: 120px; height: auto;" %>
+                <% end %>
+              </td>
+              
+              <td style="vertical-align: middle;"><%= post.store %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

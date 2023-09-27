@@ -2,18 +2,18 @@
   <table class="table">
     <tbody>
       <tr>
-        <td>
+        <td style="vertical-align: middle;">
           <%= link_to user_path(user) do %>
             <%= image_tag user.get_profile_image, alt: "image", class: "img-fluid rounded-circle", style: "width: 50px; height: 50px;" %>
           <% end %>
         </td>
-        <td><%= user.name %></td>
-        <td>
+        <td style="vertical-align: middle;"><%= user.name %></td>
+        <td style="vertical-align: middle;">
           <%= link_to user_followings_path(user) do %>
             フォロー<%= user.followings.count %>人
           <% end %>
         </td>
-        <td>
+        <td style="vertical-align: middle;">
           <%= link_to user_followers_path(user) do %>
             フォロワー<%= user.followers.count %>人
           <% end %>
