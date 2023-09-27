@@ -8,7 +8,7 @@
 
 
 
-admin = User.find_or_create_by!(email: "admin@example.com") do |user|
+user = User.find_or_create_by!(email: "admin@example.com") do |user|
   user.name = "管理者"
   user.password = ENV['DB_PASSWORD_USER1']
   user.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/48771.png"), filename:"48771.png")
