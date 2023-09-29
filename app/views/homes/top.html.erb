@@ -5,10 +5,10 @@
       <% @posts.each do |post| %>
         <div class="text-center">
           <%= link_to post_path(post.id) do %>
-            <%= image_tag post.get_image, class: "img-fluid", style:"width: 400px;" %>
+            <%= image_tag post.get_image, class: "img-fluid", style:"width: 500px;" %>
           <% end %>
           <div class="mt-4 mb-4 mx-auto ">
-            <%= image_tag "243183860.jpg", class: "img-fluid", style: "width: 400px;" %>
+            <%= image_tag "243183860.jpg", class: "img-fluid", style: "width: 500px;" %>
           </div>
         </div>
       <% end %>

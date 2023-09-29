@@ -51,7 +51,7 @@
     <% else %>
       <% @user.posts.each do |post| %>
         <div class="col-md-4">
-          <div class="card border-danger justify-content-center" style="height: 28rem; border: 15px solid red;">
+          <div class="mb-2 card border-danger justify-content-center" style="height: 29rem; border: 10px solid red;">
             <%= link_to post_path(post) do %>
             <div class="card-content" style="height: 100%;">
               <%= image_tag post.get_image, class: "card-img-top img-fluid", style: "max-height: 100%; max-width: 100%; object-fit: contain;" %>
