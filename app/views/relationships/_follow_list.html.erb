@@ -9,14 +9,7 @@
         </td>
         <td style="vertical-align: middle;"><%= user.name %></td>
         <td style="vertical-align: middle;">
-          <%= link_to user_followings_path(user) do %>
-            フォロー<%= user.followings.count %>人
-          <% end %>
-        </td>
-        <td style="vertical-align: middle;">
-          <%= link_to user_followers_path(user) do %>
-            フォロワー<%= user.followers.count %>人
-          <% end %>
+            <%= image_tag"ラーメンのアイコン。.jpg", style: "width: 20px; height: 20px;" %><%= user.posts.count %>杯
         </td>
       </tr>
     </tbody>

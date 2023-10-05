@@ -1,7 +1,13 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <h1><%= @user.followings.count %>フォロー</h1>
+      
+      <% if @user == current_user %>
+        <h2>自分がフォローしているユーザー</h2>
+      <% else %>
+        <h2>「<%= @user.name %>」さんがフォローしているユーザー</h2>
+      <% end %>
+      
       <%= render 'follow_list', users: @users %>
     </div>
   </div>
