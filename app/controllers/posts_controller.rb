@@ -17,11 +17,25 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
   end
+  
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+     flash[:notice] = "投稿の編集が保存されました。"
+     redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
+  end
 
   def destroy
     post = Post.find(params[:id])
     if post.destroy
-      redirect_to root_path, notice: '投稿を削除しました。'
+      redirect_to mypage_path, notice: '投稿を削除しました。'
     else
       flash.now[:alert] = '投稿の削除に失敗しました。'
       render :show

@@ -17,7 +17,8 @@
           <span class="font-weight-bold" style="font-size: 20px;"><%= @post.store %></span>
           <span><%= @post.created_at.strftime('<span style="font-size: 12px;">%Y/%m/%d</span>').html_safe %></span>
           <% if @post.user == current_user %>
-            <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-success" %>
+            <%= link_to "編集", edit_post_path(@post.id), class: "btn btn-success btn-sm" %>
+            <%= link_to "削除", post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" , class: "btn btn-danger btn-sm" %>
           <% end %>
         </div>
 
@@ -28,8 +29,8 @@
         <i class="far fa-comment fa-2x" style="color: #bc2424;"></i><span id="comment-count"><%= @post.post_comments.count %>件</span>
         <p><%= @post.address %></p>
         <p><%= @post.impressions %></p>
-      
-      
+
+
       <!--コメント欄-->
       <div id="post-comments">
         <%= render 'post_comments/index', post: @post %>
