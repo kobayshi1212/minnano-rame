@@ -9,6 +9,19 @@
   margin-top: auto;
 }
 
+.carousel-item {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.background {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+
 .footer {
   background-color: #ffcccc; 
   color: black; 
