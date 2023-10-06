@@ -3,7 +3,7 @@
     <ul>
       <li>
         <%= link_to notification.subject.user.name, user_path(notification.subject.user) %>
-        があなたの
+        さんがあなたの
         <%= link_to "投稿", post_path(notification.subject.post) %>
         にいいねしました
         <%= "(#{time_ago_in_words(notification.created_at)}前)" %>

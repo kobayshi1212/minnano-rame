@@ -2,15 +2,13 @@
   <table class="table">
     <tbody>
       <tr>
-        <td style="vertical-align: middle;">
+        <td>
           <%= link_to user_path(user) do %>
-            <%= image_tag user.get_profile_image, alt: "image", class: "img-fluid rounded-circle", style: "width: 50px; height: 50px;" %>
+            <%= image_tag user.get_profile_image, alt: "image", class: "small-profile-image img-fluid rounded-circle" %>
           <% end %>
         </td>
         <td style="vertical-align: middle;"><%= user.name %></td>
-        <td style="vertical-align: middle;">
-            <%= image_tag"ラーメンのアイコン。.jpg", style: "width: 20px; height: 20px;" %><%= user.posts.count %>杯
-        </td>
+        <td style="vertical-align: middle;"><%= image_tag"ラーメンのアイコン。.jpg", class: "ramen-icon" %><%= user.posts.count %>杯</td>
       </tr>
     </tbody>
   </table>

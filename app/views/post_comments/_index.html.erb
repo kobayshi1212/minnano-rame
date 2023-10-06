@@ -2,11 +2,11 @@
   <div>
     <span>
       <%= link_to user_path(post_comment.user) do %>
-        <%= image_tag post_comment.user.get_profile_image, alt: "image", class: "img-fluid rounded-circle", style: "width: 50px; height: 50px;" %>
+        <%= image_tag post_comment.user.get_profile_image, alt: "image", class: "small-profile-image img-fluid rounded-circle" %>
       <% end %>
     </span>
     <span><%= post_comment.user.name %></span>
-    <span><%= post_comment.created_at.strftime('<span style="font-size: 10px;">%Y/%m/%d</span>').html_safe %></span>
+    <span class="created-at"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
   </div>
   <div class="mb-2">
     <span><%= post_comment.comment %></span>

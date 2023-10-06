@@ -9,6 +9,16 @@
   margin-top: auto;
 }
 
+.jumbotron {
+  position: relative;
+  overflow: hidden;
+  height: 81vh;
+}
+
+.carousel {
+  position: absolute; top: 0; left: 0;
+}
+
 .carousel-inner img {
   width: 100%;
   max-height: 100%;
@@ -19,14 +29,61 @@
   background-color: rgba(255, 255, 255, 0.6);
 }
 
+.small-profile-image {
+  width: 50px;
+  height: 50px;
+}
 
+.profile-image {
+  width: 100px;
+  height: 100px;
+}
 
+.created-at {
+  font-size: 12px;
+}
+
+.small-post-image {
+  width: 120px;
+}
+
+.post-image {
+  width: 250px;
+}
+
+.ramen-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.card-border-red {
+  height: 29rem;
+  border: 10px solid red;
+}
+
+.card-content {
+  height: 100%;
+}
+
+.card-img-top img-fluid {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.font-size {
+  font-size: 30px;
+}
+
+.text-bold {
+  font-size: 20px;
+}
 
 .footer {
-  background-color: #ffcccc; 
-  color: black; 
-  padding: 20px 0; 
-  text-align: center; 
+  background-color: #ffcccc;
+  color: black;
+  padding: 20px 0;
+  text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
